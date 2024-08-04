@@ -1,0 +1,98 @@
+ncverilog(64): 15.20-s084: (c) Copyright 1995-2020 Cadence Design Systems, Inc.
+TOOL:	ncverilog	15.20-s084: Started on Aug 05, 2024 at 00:12:41 CST
+ncverilog
+	+access+r
+	-f files_core.f
+		./VD_define.v
+		./tb.sv
+		./../VD_Core.sv
+	+notimingchecks
+file: ./VD_define.v
+file: ./tb.sv
+			$fread(test_data_ref, fp_test);
+			     |
+ncvlog: *W,NOSYST (./tb.sv,83|8): System function '$fread' invoked as a task. Return value will be ignored.
+			$fread(test_data_read, fp_test);
+			     |
+ncvlog: *W,NOSYST (./tb.sv,84|8): System function '$fread' invoked as a task. Return value will be ignored.
+			$fread(test_data_read_BQ, fp_test);
+			     |
+ncvlog: *W,NOSYST (./tb.sv,85|8): System function '$fread' invoked as a task. Return value will be ignored.
+	module worklib.tb:sv
+		errors: 0, warnings: 3
+file: ./../VD_Core.sv
+	module worklib.VD_Core:sv
+		errors: 0, warnings: 0
+	module worklib.VD_PE:sv
+		errors: 0, warnings: 0
+		Caching library 'worklib' ....... Done
+	Elaborating the design hierarchy:
+ncelab: *W,DSEMEL: This SystemVerilog design will be simulated as per IEEE 1800-2009 SystemVerilog simulation semantics. Use -disable_sem2009 option for turning off SV 2009 simulation semantics.
+		.refresh				(0),
+		        				 |
+ncelab: *W,CUVMPW (./tb.sv,37|15): port sizes differ in port connection (32/1).
+		.i_geno_address_ID		(0),
+		                  		 |
+ncelab: *W,CUVMPW (./tb.sv,45|23): port sizes differ in port connection (32/7).
+		.i_geno_weight_sum		(0),
+		                  		 |
+ncelab: *W,CUVMPW (./tb.sv,46|23): port sizes differ in port connection (32/16).
+		.o_alignment_score		(o_alignment_score),
+		                  		                 |
+ncelab: *W,CUVMPW (./tb.sv,49|39): port sizes differ in port connection (17/16).
+	Building instance overlay tables: 
+			i_sequence_hap 		= {test_data_ref, {(`HAP_MAX_LENGTH*2-`HAP_LENGTH*2){1'b0}}};		// reference seq
+			               		                                     |
+ncelab: *W,ZROMCW (./tb.sv,112|57): Zero multiple concatenation multiplier, treated as zero width by enclosing concatenation.
+			i_sequence_read 	= {test_data_read, {(`READ_MAX_LENGTH*2-`READ_LENGTH*2){1'b0}}};  	// read seq
+			                	                                       |
+ncelab: *W,ZROMCW (./tb.sv,113|59): Zero multiple concatenation multiplier, treated as zero width by enclosing concatenation.
+			i_sequence_read_BQ = {test_data_read_BQ, {(`READ_MAX_LENGTH*2-`READ_LENGTH*2){1'b0}}};  	// read seq
+			                                                             |
+ncelab: *W,ZROMCW (./tb.sv,114|64): Zero multiple concatenation multiplier, treated as zero width by enclosing concatenation.
+.................... Done
+	Generating native compiled code:
+		worklib.VD_Core:sv <0x5bf630d4>
+			streams:  17, words: 25479
+		worklib.VD_PE:sv <0x57f6cbbf>
+			streams:  23, words: 13346
+		worklib.tb:sv <0x0bebe9a6>
+			streams:   9, words: 25181
+	Building instance specific data structures.
+		.rst_n					(rst_n),
+		      					     |
+ncelab: *W,CSINFI (./tb.sv,36|18): implicit wire has no fanin (tb.rst_n).
+	Loading native compiled code:     .................... Done
+	Design hierarchy summary:
+		                   Instances  Unique
+		Modules:                  66       3
+		Registers:              1601      89
+		Scalar wires:            203       -
+		Vectored wires:         1297       -
+		Always blocks:           581      14
+		Initial blocks:            3       3
+		Cont. assignments:       835      26
+		Pseudo assignments:      137      13
+		Simulation timescale:  100ps
+	Writing initial simulation snapshot: worklib.tb:sv
+Loading snapshot worklib.tb:sv .................... Done
+ncsim: *W,DSEM2009: This SystemVerilog design is simulated as per IEEE 1800-2009 SystemVerilog simulation semantics. Use -disable_sem2009 option for turning off SV 2009 simulation semantics.
+*Verdi* Loading libsscore_ius152.so
+ncsim> source /usr/cad/cadence/INCISIV/INCISIVE_15.20.084/tools/inca/files/ncsimrc
+ncsim> run
+FSDB Dumper for IUS, Release Verdi_S-2021.09, Linux x86_64/64bit, 08/29/2021
+(C) 1996 - 2021 by Synopsys, Inc.
+*Verdi* FSDB WARNING: The FSDB file already exists. Overwriting the FSDB file may crash the programs that are using this file.
+*Verdi* : Create FSDB file 'lab2.fsdb'
+*Verdi* : Begin traversing the scopes, layer (0).
+*Verdi* : End of traversing.
+=========
+ref    0 = cb4370d0b41cec2b8b6a7936ba1f202ee80acfc5f37d754c93a5c6208fe0574c
+read   0 = 9f58de19a03328b40165cf53c3cf9014ffffffffffffffffffffffffffffffff
+read BQ   0 = 131e06bb8996e0b3e32745e0e73f4cfebab7230c8f29a65326a6258541a90e75 
+
+Too slow, abort.
+Simulation complete via $finish(1) at time 5 MS + 0
+./tb.sv:154 		$finish;
+ncsim> exit
+TOOL:	ncverilog	15.20-s084: Exiting on Aug 05, 2024 at 00:12:44 CST  (total: 00:00:03)

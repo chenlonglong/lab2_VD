@@ -1,0 +1,5 @@
+//
+// File created by:  irun
+// Do not modify this file
+
+s1::(05Aug2024:00:12:41):( ncverilog +access+r -f files_core.f +notimingchecks )
