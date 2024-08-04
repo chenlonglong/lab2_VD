@@ -2,15 +2,15 @@
 
 The roadmap of this lab:
 
-1. Create project (same as lab2)
-2. Implement the SW core
+1. Create project
+2. Implement the Viterbi Decoding core
 3. Use 01_run_core.sh to debug the design
 4. Implement a Avalon master to control RS-232 (VD_Wrapper.sv) and wrap your core
 5. Use 02_run_wrapper.sh to debug the wrapper design
-6. Build Qsys system (same as lab2)
-7. Compile and program (same as lab2)
+6. Build Qsys system
+7. Compile and program
 
-## Implement the SW Core
+## Implement the Viterbi Decoding Core
 > When you design an architecture, you design the dataflow first.
 > Write Verilog only after you have make sure of all dataflow.
 
@@ -121,7 +121,7 @@ python test_rs232.py [COM? | /dev/ttyS0 | /dev/ttyUSB0]
 ## Generating Testing Data
 * Move to cpp/
   ```
-  cd ./lab_bonus_VD/src/cpp
+  cd ./lab2_VD/src/cpp
   ```
 * Compile ./cpp/src/gen_data.cpp
   ```
@@ -138,7 +138,7 @@ python test_rs232.py [COM? | /dev/ttyS0 | /dev/ttyUSB0]
 ## Perform VD Algorithm (c code)
 * Move to cpp/
   ```
-  cd ./lab_bonus_VD/src/cpp
+  cd ./lab2_VD/src/cpp
   ```
 * Compile ./cpp/src/main.cpp
   ```
